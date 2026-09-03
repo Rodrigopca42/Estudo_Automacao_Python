@@ -1,0 +1,12 @@
+2026-09-03 16:55:36,473 - INFO - ==========INÍCIO DO TESTE DE LOGIN=============
+2026-09-03 16:55:40,527 - INFO - Página de login acessada
+2026-09-03 16:55:40,856 - INFO - Evidência capturada: evidencias/01_pagina_login.png
+2026-09-03 16:55:40,980 - INFO - Usuário preenchido
+2026-09-03 16:55:41,158 - INFO - Evidência capturada: evidencias/02_usuário_preenchido.png
+2026-09-03 16:55:41,243 - INFO - Senha preenchida
+2026-09-03 16:55:41,362 - INFO - Evidência capturada: evidencias/03_senha_preenchida.png
+2026-09-03 16:55:45,770 - INFO - Botão Entrar clicado
+2026-09-03 16:55:46,100 - INFO - Evidência capturada: evidencias/04_apos_login.png
+2026-09-03 16:55:46,100 - INFO - Teste de login executado com sucesso
+2026-09-03 16:55:46,100 - INFO - ===========FIM DO TESTE=============
+2026-09-03 16:55:48,616 - INFO - Navegador encerrado

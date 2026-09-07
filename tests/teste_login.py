@@ -9,23 +9,46 @@ import logging
 import os
 from datetime import datetime
 
+from utils.evidencia import capturar_evidencia
+from utils.logger import configurar_logger
+
+
+# ============================================================
+# IDENTIFICAÇÃO DA EXECUÇÃO
+# ============================================================
+
+id_execucao = datetime.now().strftime(
+    '%Y-%m-%d_%H-%M-%S'
+)
+
+# ============================================================
+# PASTAS DA EXECUÇÃO
+# ============================================================
+
+pasta_evidencia = os.path.join(
+    'evidências', id_execucao
+)
+
+pasta_logs = os.path.join(
+    'logs', id_execucao
+)
+
+pasta_relatorio = os.path.join(
+    'reports', id_execucao
+)
+
+#criar pastas
+os.makedirs(pasta_evidencia, exist_ok=True)
+os.makedirs(pasta_logs, exist_ok=True)
+os.makedirs(pasta_relatorio, exist_ok=True)
+
+
+
 # ============================================================
 # CONFIGURAÇÃO DE LOG
 # ============================================================
 
-os.makedirs('logs', exist_ok = True)
-
-nome_log = datetime.now().strftime(
-    'logs/teste_login_%Y%m%d_%H%M%S.log'
-)
-
-logging.basicConfig(
-    filename=nome_log,
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-
-logger = logging.getLogger(__name__)
+logger = configurar_logger(pasta_logs)
 
 # ============================================================
 # FUNÇÃO PARA CAPTURA DE EVIDÊNCIA
@@ -128,7 +151,9 @@ except Exception as erro:
     )
 
     capturar_evidencia(
-        driver, 'Erro_login'
+        driver,
+        pasta_evidencia,
+        'Erro_login'
     )
 
     raise

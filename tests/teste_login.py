@@ -99,7 +99,7 @@ try:
     # ========================================================
 
     # Localizar e clicar no botão Entrar
-    btn_entrar = driver.find_element(By.XPATH, '//div[2]/button.')
+    btn_entrar = driver.find_element(By.XPATH, '//div[2]/button')
 
     WebDriverWait(driver, 5).until(
         EC.element_to_be_clickable(btn_entrar)
@@ -124,7 +124,7 @@ try:
 except Exception as erro:
 
     logger.error(
-        f'Erro durente a execução do teste: {erro}'
+        f'Erro durante a execução do teste: {erro}'
     )
 
     capturar_evidencia(

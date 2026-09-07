@@ -11,6 +11,7 @@ from datetime import datetime
 
 from utils.evidencia import capturar_evidencia
 from utils.logger import configurar_logger
+from utils.relatorio_pdf import gerar_relatorio_pdf
 
 
 # ============================================================
@@ -50,10 +51,32 @@ os.makedirs(pasta_relatorio, exist_ok=True)
 
 logger = configurar_logger(pasta_logs)
 
+
+# ============================================================
+# CAMINHO DO CENÁRIO BDD
+# ============================================================
+
+caminho_cenario = os.path.join(
+    "cenarios",
+    "CT-LOGIN-001.md"
+)
+
+# ============================================================
+# VARIÁVEIS DO TESTE
+# ============================================================
+
+status_teste = "FAIL"
+caminho_log = os.path.join(
+    pasta_logs,
+    "teste_login.log"
+)
+
+driver = None
+
 # ============================================================
 # FUNÇÃO PARA CAPTURA DE EVIDÊNCIA
 # ============================================================
-
+'''
 def capturar_evidencia(driver, nome):
     os.makedirs('evidencias', exist_ok = True)
 
@@ -65,7 +88,7 @@ def capturar_evidencia(driver, nome):
        logger.info(f'Evidência capturada: {caminho}')
     else:
         logger.error(f'Falha ao capturar evidência: {caminho}')
-
+'''
 # ============================================================
 # INÍCIO DO TESTE
 # ============================================================
@@ -86,7 +109,9 @@ try:
     logger.info('Página de login acessada')
 
     capturar_evidencia(
-        driver, '01_pagina_login'
+        driver,
+        pasta_evidencia,
+        '01_pagina_login'
     )
 
     # ========================================================
@@ -100,7 +125,9 @@ try:
     logger.info('Usuário preenchido')
 
     capturar_evidencia(
-        driver, '02_usuário_preenchido'
+        driver,
+        pasta_evidencia,
+        '02_usuário_preenchido'
     )
 
     # ========================================================
@@ -114,7 +141,9 @@ try:
     logger.info('Senha preenchida')
 
     capturar_evidencia(
-        driver, '03_senha_preenchida'
+        driver, 
+        pasta_evidencia,
+        '03_senha_preenchida'
     )
 
     # ========================================================
@@ -133,7 +162,19 @@ try:
     logger.info('Botão Entrar clicado')
 
     capturar_evidencia(
-        driver, '04_apos_login'
+        driver,
+        pasta_evidencia,
+        '04_apos_login'
+    )
+
+    # ========================================================
+    # TESTE APROVADO
+    # ========================================================
+
+    status_teste = "PASS"
+
+    logger.info(
+        "Teste de login executado com sucesso"
     )
 
     # ========================================================
@@ -146,29 +187,62 @@ try:
 
 except Exception as erro:
 
+    # ========================================================
+    # TESTE REPROVADO
+    # ========================================================
+
+    status_teste = "FAIL"
+
     logger.error(
         f'Erro durante a execução do teste: {erro}'
     )
 
-    capturar_evidencia(
-        driver,
-        pasta_evidencia,
-        'Erro_login'
-    )
+    if driver is not None:
+
+        capturar_evidencia(
+            driver,
+            pasta_evidencia,
+            "erro_login"
+        )
 
     raise
 
 
 finally:
 
-    # fechar o navegador
-    driver.quit()
+    # ========================================================
+    # ENCERRAR NAVEGADOR
+    # ========================================================
 
-    logger.info('Navegador encerrado')
+    if driver is not None:
 
+        driver.quit()
 
+        logger.info(
+            "Navegador encerrado"
+        )
 
+    logger.info(
+        "=========== FIM DO TESTE ==========="
+    )
 
+    # ========================================================
+    # GERAR RELATÓRIO PDF
+    # ========================================================
+
+    caminho_pdf = gerar_relatorio_pdf(
+        id_execucao=id_execucao,
+        caminho_cenario=caminho_cenario,
+        pasta_evidencias=pasta_evidencia,
+        caminho_log=caminho_log,
+        pasta_relatorio=pasta_relatorio,
+        status=status_teste,
+        ambiente="Homologação"
+    )
+
+    print(
+        f"\nRelatório PDF gerado em: {caminho_pdf}"
+    )
 
 
 

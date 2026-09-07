@@ -1,0 +1,4 @@
+2026-09-07 14:10:47,447 - INFO - ==========INÍCIO DO TESTE DE LOGIN=============
+2026-09-07 14:10:52,510 - INFO - Página de login acessada
+2026-09-07 14:10:52,511 - ERROR - Erro durante a execução do teste: capturar_evidencia() takes 2 positional arguments but 3 were given
+2026-09-07 14:10:54,835 - INFO - Navegador encerrado

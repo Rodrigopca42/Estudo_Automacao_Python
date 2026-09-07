@@ -12,7 +12,8 @@ def configurar_logger(pasta_execucao):
     logging.basicConfig(
         filename=caminho_log,
         level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s',
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        encoding="utf-8",
         force=True
     )
 

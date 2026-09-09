@@ -13,6 +13,13 @@ from utils.evidencia import capturar_evidencia
 from utils.logger import configurar_logger
 from utils.relatorio_pdf import gerar_relatorio_pdf
 
+from config.configuracoes import (
+    URL_LOGIN,
+    USUARIO_TESTE,
+    SENHA_TESTE,
+    TIMEOUT,
+    AMBIENTE
+)
 
 # ============================================================
 # IDENTIFICAÇÃO DA EXECUÇÃO
@@ -101,7 +108,7 @@ try:
     logger.info('==========INÍCIO DO TESTE DE LOGIN=============')
 
     # Acessar a página de login
-    driver.get('https://hml-loja.spcbrasil.com.br/customer/account/login/referer/aHR0cHM6Ly9obWwtbG9qYS5zcGNicmFzaWwuY29tLmJyL3BhcmEtcGVzc29hcy1qdXJpZGljYXMvY29uc3VsdGE~/')
+    driver.get(URL_LOGIN)
 
     # Maximizar a tela
     driver.maximize_window()
@@ -120,7 +127,7 @@ try:
 
     # Localizar o campo do usuário e preencher
     campo_usurario = driver.find_element(By.ID, 'email')
-    campo_usurario.send_keys('53.416.790/0001-57')
+    campo_usurario.send_keys(USUARIO_TESTE)
 
     logger.info('Usuário preenchido')
 
@@ -136,7 +143,7 @@ try:
 
     # Localizar campo senha e preencher
     campo_senha = driver.find_element(By.ID, 'password')
-    campo_senha.send_keys('Senha123$')
+    campo_senha.send_keys(SENHA_TESTE)
 
     logger.info('Senha preenchida')
 
@@ -153,7 +160,7 @@ try:
     # Localizar e clicar no botão Entrar
     btn_entrar = driver.find_element(By.XPATH, '//div[2]/button')
 
-    WebDriverWait(driver, 5).until(
+    WebDriverWait(driver, TIMEOUT).until(
         EC.element_to_be_clickable(btn_entrar)
     )
 

@@ -1,0 +1,5 @@
+2026-09-11 15:22:34,028 - INFO - ==========INÍCIO DO TESTE DE LOGIN=============
+2026-09-11 15:22:36,961 - INFO - Página de login acessada
+2026-09-11 15:22:37,242 - ERROR - Erro durante a execução do teste: 'NoneType' object is not iterable
+2026-09-11 15:22:39,597 - INFO - Navegador encerrado
+2026-09-11 15:22:39,597 - INFO - =========== FIM DO TESTE ===========

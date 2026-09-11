@@ -3,9 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
 
-import logging
 import os
 from datetime import datetime
 
@@ -80,22 +78,6 @@ caminho_log = os.path.join(
 
 driver = None
 
-# ============================================================
-# FUNÇÃO PARA CAPTURA DE EVIDÊNCIA
-# ============================================================
-'''
-def capturar_evidencia(driver, nome):
-    os.makedirs('evidencias', exist_ok = True)
-
-    caminho = f'evidencias/{nome}.png'
-
-    sucesso = driver.save_screenshot(caminho)
-
-    if sucesso:
-       logger.info(f'Evidência capturada: {caminho}')
-    else:
-        logger.error(f'Falha ao capturar evidência: {caminho}')
-'''
 # ============================================================
 # INÍCIO DO TESTE
 # ============================================================

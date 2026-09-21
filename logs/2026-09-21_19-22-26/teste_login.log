@@ -1,0 +1,14 @@
+2026-09-21 19:22:29,015 - INFO - ==========INÍCIO DO TESTE DE LOGIN=============
+2026-09-21 19:22:29,076 - INFO - Página HOME acessada
+2026-09-21 19:22:30,114 - INFO - Página de login acessada
+2026-09-21 19:22:30,381 - INFO - Usuário preenchido
+2026-09-21 19:22:30,580 - INFO - Senha preenchida
+2026-09-21 19:22:30,913 - INFO - Botão Entrar clicado
+2026-09-21 19:22:31,088 - INFO - Teste de login executado com sucesso
+2026-09-21 19:22:31,089 - INFO - Teste de login executado com sucesso
+2026-09-21 19:22:31,089 - INFO - ===========FIM DO TESTE=============
+2026-09-21 19:22:33,350 - INFO - Navegador encerrado
+2026-09-21 19:22:33,366 - INFO - =========== FIM DO TESTE ===========
+2026-09-21 19:22:38,115 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=49980): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/cacce47970d7287eb69cf2433d1cc519
+2026-09-21 19:22:42,194 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=49980): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/cacce47970d7287eb69cf2433d1cc519
+2026-09-21 19:22:46,287 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=49980): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/cacce47970d7287eb69cf2433d1cc519

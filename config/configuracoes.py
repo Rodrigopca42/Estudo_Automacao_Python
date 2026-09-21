@@ -6,7 +6,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-URL_LOGIN = "https://hml-loja.spcbrasil.com.br/customer/account/login/referer/aHR0cHM6Ly9obWwtbG9qYS5zcGNicmFzaWwuY29tLmJyL3BhcmEtcGVzc29hcy1qdXJpZGljYXMvY29uc3VsdGE~/"
+URL_LOGIN = "https://sauce-demo.myshopify.com/account/login"
+
+URL_HOME = 'https://sauce-demo.myshopify.com/'
 
 AMBIENTE = "Homologação"
 

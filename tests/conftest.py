@@ -12,10 +12,5 @@ def navegador():
 
     driver.quit()
 
-'''
-@pytest.fixture
 
-def url_home(URL_HOME):
-   return URL_HOME
-'''
 

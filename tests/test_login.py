@@ -1,4 +1,4 @@
-from selenium import webdriver
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -73,8 +73,6 @@ caminho_log = os.path.join(
     pasta_logs,
     "teste_login.log"
 )
-
-driver = None
 
 # ============================================================
 # INÍCIO DO TESTE
@@ -172,7 +170,7 @@ def test_login(navegador):
         capturar_evidencia(
             driver,
             pasta_evidencia,
-            '04_apos_login'
+            '05_apos_login'
         )
 
         # ========================================================
@@ -181,9 +179,6 @@ def test_login(navegador):
 
         status_teste = "PASS"
 
-        logger.info(
-            "Teste de login executado com sucesso"
-        )
 
         # ========================================================
         # FINALIZAÇÃO
@@ -222,14 +217,7 @@ def test_login(navegador):
         # ENCERRAR NAVEGADOR
         # ========================================================
 
-        if driver is not None:
-
-            driver.quit()
-
-            logger.info(
-                "Navegador encerrado"
-            )
-
+        
         logger.info(
             "=========== FIM DO TESTE ==========="
         )

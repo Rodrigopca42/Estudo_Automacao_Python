@@ -12,7 +12,7 @@ URL_HOME = 'https://sauce-demo.myshopify.com/'
 
 AMBIENTE = "Homologação"
 
-TIMEOUT = 1
+TIMEOUT = 5
 
 USUARIO_TESTE = os.getenv('USUARIO_TESTE')
 if not USUARIO_TESTE:

@@ -10,12 +10,7 @@ from utils.evidencia import capturar_evidencia
 from utils.logger import configurar_logger
 from utils.relatorio_pdf import gerar_relatorio_pdf
 
-from config.configuracoes import (
-    USUARIO_TESTE,
-    SENHA_TESTE,
-    TIMEOUT,
-    AMBIENTE
-)
+from config.configuracoes import *
 
 # ============================================================
 # IDENTIFICAÇÃO DA EXECUÇÃO
@@ -157,7 +152,7 @@ def test_login(navegador):
         # ========================================================
 
         # Localizar e clicar no botão Entrar
-        btn_entrar = driver.find_element(By.XPATH, '//div[5]/input.')
+        btn_entrar = driver.find_element(By.XPATH, '//div[5]/input')
 
         WebDriverWait(driver, TIMEOUT).until(
             EC.element_to_be_clickable(btn_entrar)
@@ -170,9 +165,9 @@ def test_login(navegador):
         capturar_evidencia(
             driver,
             pasta_evidencia,
-            '05_apos_login'
+            '05_clique no botão'
         )
-
+        
         # ========================================================
         # TESTE APROVADO
         # ========================================================
@@ -213,15 +208,6 @@ def test_login(navegador):
 
     finally:
 
-        # ========================================================
-        # ENCERRAR NAVEGADOR
-        # ========================================================
-
-        '''
-        logger.info(
-            "=========== FIM DO TESTE ==========="
-        )
-'''
         # ========================================================
         # GERAR RELATÓRIO PDF
         # ========================================================

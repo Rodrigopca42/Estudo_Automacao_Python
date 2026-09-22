@@ -13,5 +13,5 @@ Então devo ser direcionado para página de login
 Dado que estou na página de login
 Quando informo um usuário válido
 E informo uma senha válida
-E clico no botão "Entrar"
+E clico no botão "Sign in"
 Então devo ser autenticado com sucesso e enviado para Home

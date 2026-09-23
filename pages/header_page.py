@@ -1,0 +1,15 @@
+from selenium.webdriver.common.by import By
+
+
+class HeaderPage:
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def acessar_login(self):
+        btn_login = self.driver.find_element(
+            By.ID,
+            'customer_login_link'
+        )
+
+        btn_login.click()

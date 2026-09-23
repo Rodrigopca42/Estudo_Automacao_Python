@@ -1,8 +1,4 @@
 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 import os
 from datetime import datetime
 
@@ -11,6 +7,9 @@ from utils.logger import configurar_logger
 from utils.relatorio_pdf import gerar_relatorio_pdf
 
 from config.configuracoes import *
+
+from pages.header_page import HeaderPage
+from pages.login_page import LoginPage
 
 # ============================================================
 # IDENTIFICAÇÃO DA EXECUÇÃO
@@ -73,11 +72,12 @@ caminho_log = os.path.join(
 # INÍCIO DO TESTE
 # ============================================================
 
-# Inicializar o navegador
 def test_login(navegador):
 
      # Acessar a página de login
     driver = navegador
+
+    status_teste = "FAIL"
 
     try:
 
@@ -99,9 +99,11 @@ def test_login(navegador):
             '01_pagina_home'
         )
 
-        btn_login = driver.find_element(By.ID, 'customer_login_link')
+        header = HeaderPage(driver)
+        login = LoginPage(driver)
 
-        btn_login.click()
+
+        header.acessar_login()
 
         # ========================================================
         # ACESSANDO A PAGINA LOGIN
@@ -120,8 +122,7 @@ def test_login(navegador):
         # ========================================================
 
         # Localizar o campo do usuário e preencher
-        campo_usurario = driver.find_element(By.ID, 'customer_email')
-        campo_usurario.send_keys(USUARIO_TESTE)
+        login.preencher_usuario(USUARIO_TESTE)
 
         logger.info('Usuário preenchido')
 
@@ -136,8 +137,7 @@ def test_login(navegador):
         # ========================================================
 
         # Localizar campo senha e preencher
-        campo_senha = driver.find_element(By.ID, 'customer_password')
-        campo_senha.send_keys(SENHA_TESTE)
+        login.preencher_senha(SENHA_TESTE)
 
         logger.info('Senha preenchida')
 
@@ -152,13 +152,7 @@ def test_login(navegador):
         # ========================================================
 
         # Localizar e clicar no botão Entrar
-        btn_entrar = driver.find_element(By.XPATH, '//div[5]/input')
-
-        WebDriverWait(driver, TIMEOUT).until(
-            EC.element_to_be_clickable(btn_entrar)
-        )
-
-        btn_entrar.click()
+        login.clicar_entrar()
 
         logger.info('Botão Entrar clicado')
 
@@ -189,7 +183,7 @@ def test_login(navegador):
         # TESTE REPROVADO
         # ========================================================
 
-        status_teste = "FAIL"
+        
 
         logger.error(
             f'Erro durante a execução do teste: {erro}'

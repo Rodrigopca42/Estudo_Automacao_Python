@@ -22,21 +22,21 @@ class HomePage:
     # ========================================================
 
     def acessar_grey_jacket(self):
-        produto = self.driver.find.element(
+        produto = self.driver.find_element(
             *self.GREY_JACKET
         )
 
         produto.click()
 
     def acessar_noir_jacket(self):
-        produto = self.driver.find.element(
+        produto = self.driver.find_element(
             *self.NOIR_JACKET
         )    
 
         produto.click()
 
     def acessar_stirped_top(self):
-        produto = self.driver.find.element(
+        produto = self.driver.find_element(
             *self.STRIPED_TOP
         )
 

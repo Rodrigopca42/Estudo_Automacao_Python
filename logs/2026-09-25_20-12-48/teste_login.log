@@ -1,0 +1,8 @@
+2026-09-25 20:12:49,760 - INFO - ==========INÍCIO DO TESTE DE LOGIN=============
+2026-09-25 20:12:50,545 - INFO - Página HOME acessada
+2026-09-25 20:12:51,853 - INFO - Página de login acessada
+2026-09-25 20:12:52,062 - INFO - Usuário preenchido
+2026-09-25 20:12:52,367 - INFO - Senha preenchida
+2026-09-25 20:12:52,650 - INFO - Botão Entrar clicado
+2026-09-25 20:12:52,763 - INFO - Teste de login executado com sucesso
+2026-09-25 20:12:52,763 - INFO - ===========FIM DO TESTE=============

@@ -1,0 +1,25 @@
+2026-09-25 19:50:27,827 - INFO - ==========INÍCIO DO TESTE DE LOGIN=============
+2026-09-25 19:50:27,884 - INFO - Página HOME acessada
+2026-09-25 19:50:28,200 - ERROR - Erro durante a execução do teste: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//div[5]/input"}
+  (Session info: chrome=153.0.8010.53); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a7ca1035+5a95]
+	chromedriver!(No symbol) [0x7ff7a7bc2c70]
+	chromedriver!(No symbol) [0x7ff7a79e4a7d]
+	chromedriver!(No symbol) [0x7ff7a7a3ff91]
+	chromedriver!(No symbol) [0x7ff7a7a4025c]
+	chromedriver!(No symbol) [0x7ff7a7a92f67]
+	chromedriver!(No symbol) [0x7ff7a7a8fbea]
+	chromedriver!(No symbol) [0x7ff7a7a31d02]
+	chromedriver!(No symbol) [0x7ff7a7a32b13]
+	chromedriver!GetHandleVerifier [0x7ff7a80c1411+425e71]
+	chromedriver!GetHandleVerifier [0x7ff7a80eca47+4514a7]
+	chromedriver!GetHandleVerifier [0x7ff7a80e094e+4453ae]
+	chromedriver!GetHandleVerifier [0x7ff7a7d9bf6e+1009ce]
+	chromedriver!(No symbol) [0x7ff7a7bd0a05]
+	chromedriver!(No symbol) [0x7ff7a7bcbcf4]
+	chromedriver!(No symbol) [0x7ff7a7bcbe84]
+	chromedriver!(No symbol) [0x7ff7a7bb66ac]
+	KERNEL32!BaseThreadInitThunk [0x7ff91848cd87+17]
+	ntdll!RtlUserThreadStart [0x7ff918b6caec+2c]
+

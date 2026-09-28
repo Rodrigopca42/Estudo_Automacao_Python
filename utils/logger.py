@@ -2,11 +2,11 @@ import logging
 import os
 
 
-def configurar_logger(pasta_execucao):
+def configurar_logger(pasta_execucao, nome_log="teste.log"):
     os.makedirs(pasta_execucao, exist_ok=True)
 
     caminho_log = os.path.join(
-        pasta_execucao, 'teste_login.log'
+        pasta_execucao, nome_log
     )
 
     logging.basicConfig(
@@ -17,4 +17,4 @@ def configurar_logger(pasta_execucao):
         force=True
     )
 
-    return logging.getLogger(__name__)
+    return logging.getLogger(__name__), caminho_log

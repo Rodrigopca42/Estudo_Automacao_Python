@@ -14,6 +14,8 @@ AMBIENTE = "Homologação"
 
 TIMEOUT = 5
 
+TEMPO_ESPERA_EVIDENCIA = 2
+
 USUARIO_TESTE = os.getenv('USUARIO_TESTE')
 if not USUARIO_TESTE:
     raise ValueError(

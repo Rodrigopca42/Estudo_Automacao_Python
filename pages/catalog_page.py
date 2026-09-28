@@ -54,27 +54,39 @@ class CatalogPage:
 
         grey_jacket.click()
 
-    def acessar_noir_jacket(self):
-        noir_jacket = self.driver.find_element(
-            *self.NOIR_JACKET
+    def rolar_ate_grey_jacket(self):
+        grey_jacket = self.driver.find_element(
+            *self.GREY_JACKET
         )
 
-        noir_jacket.click()
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'});",
+            grey_jacket
+        )
+
+    def acessar_noir_jacket(self):
+        produto = self.driver.find_element(*self.NOIR_JACKET)
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'});",
+            produto
+        )
+        produto.click()
 
     def acessar_striped_top(self):
-        striped_top = self.driver.find_element(
-            *self.STRIPED_TOP
+        produto = self.driver.find_element(*self.STRIPED_TOP)
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'});",
+            produto
         )
-
-        striped_top.click()
+        produto.click()
 
     def acessar_white_sandals(self):
-        white_sandals = self.driver.find_element(
-            *self.WHITE_SANDALS
+        produto = self.driver.find_element(*self.WHITE_SANDALS)
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'});",
+            produto
         )
-
-        white_sandals.click()
-
+        produto.click()
 
 
 

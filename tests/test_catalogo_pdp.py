@@ -126,7 +126,7 @@ def test_acessar_catalogo_e_visualizar_produto(navegador):
 
         catalogo = CatalogPage(driver)
 
-        catalogo.rolar_ate_grey_jacket()
+        catalogo.rolar_para_step_2()
 
         logger.info(
             'Produto Grey Jacket localizado na PLP'
@@ -142,7 +142,9 @@ def test_acessar_catalogo_e_visualizar_produto(navegador):
         # ACESSAR PDP
         # ====================================================
 
-        catalogo.acessar_grey_jacket()
+        catalogo.acessar_produto(
+            catalogo.CARD_GREY_JACKET_COMPLET
+        )
 
         logger.info(
             'Produto selecionado: Grey Jacket'

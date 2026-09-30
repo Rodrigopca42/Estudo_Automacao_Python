@@ -26,6 +26,18 @@ def capturar_evidencia(driver, pasta_execucao, nome):
     return None
 
 
+def destacar_elemento(driver, locator):
+    elemento = driver.find_element(*locator)
+
+    driver.execute_script(
+        """
+        arguments[0].style.border = '5px solid green';
+        arguments[0].style.boxSizing = 'border-box';
+        """,
+        elemento
+    )
+
+
 def capturar_evidencia_destacada(
     driver,
     pasta_execucao,
@@ -49,15 +61,3 @@ def capturar_evidencia_destacada(
         return caminho
 
     return None
-
-
-def destacar_elemento(driver, locator):
-    elemento = driver.find_element(*locator)
-
-    driver.execute_script(
-        """
-        arguments[0].style.border = '3px solid green';
-        arguments[0].style.boxSizing = 'border-box';
-        """,
-        elemento
-    )

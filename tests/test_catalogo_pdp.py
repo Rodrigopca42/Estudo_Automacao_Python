@@ -1,7 +1,7 @@
 import os
 from datetime import datetime
 
-from utils.evidencia import capturar_evidencia
+from utils.evidencia import *
 from utils.logger import configurar_logger
 from utils.relatorio_pdf import gerar_relatorio_pdf
 
@@ -31,7 +31,7 @@ pasta_evidencia = os.path.join(
 )
 
 pasta_execucao = os.path.join(
-    "evidências",
+    "logs",
     id_execucao
 )
 
@@ -91,7 +91,7 @@ def test_acessar_catalogo_e_visualizar_produto(navegador):
     try:
 
         logger.info(
-            '========== INÍCIO DO TESTE DE CATÁLOGO E PDP =========='
+            '=== INÍCIO DO TESTE DE CATÁLOGO E PDP ==='
         )
 
         driver.maximize_window()
@@ -132,10 +132,11 @@ def test_acessar_catalogo_e_visualizar_produto(navegador):
             'Produto Grey Jacket localizado na PLP'
         )
 
-        capturar_evidencia(
+        capturar_evidencia_destacada(
             driver,
             pasta_evidencia,
-            '03_grey_jacket_na_plp'
+            '03_grey_jacket_na_plp',
+            catalogo.CARD_GREY_JACKET_COMPLET
         )
 
         # ====================================================

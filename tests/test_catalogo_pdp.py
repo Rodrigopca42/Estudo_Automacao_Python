@@ -11,6 +11,8 @@ from pages.navbar_page import NavBarPage
 from pages.catalog_page import CatalogPage
 from pages.pdp_page import PdpPage
 
+from utils.email_sender import enviar_relatorio_email
+
 
 # ============================================================
 # IDENTIFICAÇÃO DA EXECUÇÃO
@@ -216,6 +218,26 @@ def test_acessar_catalogo_e_visualizar_produto(navegador):
             status=status_teste,
             ambiente=AMBIENTE
         )
+
         print(
             f"\nRelatório PDF gerado em: {caminho_pdf}"
+        )
+
+        enviar_relatorio_email(
+            caminho_pdf=caminho_pdf,
+            destinatario=EMAIL_DESTINATARIO,
+            assunto=(
+                f"Relatório de execução - "
+                f"{status_teste} - "
+                f"{id_execucao}"
+            ),
+            corpo=(
+                "Olá,\n\n"
+                "Segue em anexo o relatório da execução "
+                "automatizada de testes.\n\n"
+                f"ID da execução: {id_execucao}\n"
+                f"Ambiente: {AMBIENTE}\n"
+                f"Status: {status_teste}\n\n"
+                "Relatório gerado automaticamente."
+            )
         )

@@ -27,3 +27,15 @@ if not SENHA_TESTE:
     raise ValueError(
         'A variável SENHA_TESTE não foi configurada no arquivo .env'
     )
+
+EMAIL_DESTINATARIO = os.getenv(
+    'EMAIL_DESTINATARIO'
+)
+
+if not EMAIL_DESTINATARIO:
+    raise ValueError(
+        'A variável EMAIL_DESTINATARIO não foi configurada no arquivo .env'
+    ) 
+
+
+

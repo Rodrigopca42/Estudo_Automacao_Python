@@ -1,11 +1,16 @@
 import os
 import time
 
-from config.configuracoes import TEMPO_ESPERA_EVIDENCIA
-
+from config.configuracoes import (
+    TEMPO_ESPERA_EVIDENCIA,
+    TEMPO_ATUALIZACAO_MINICART
+)
 
 def aguardar_carregamento():
     time.sleep(TEMPO_ESPERA_EVIDENCIA)
+
+def aguardar_atualizacao_minicart():
+    time.sleep(TEMPO_ATUALIZACAO_MINICART)
 
 
 def capturar_evidencia(driver, pasta_execucao, nome):

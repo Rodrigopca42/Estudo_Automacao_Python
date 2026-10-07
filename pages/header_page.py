@@ -1,5 +1,9 @@
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support.ui import WebDriverWait
+from config.configuracoes import (
+    TIMEOUT,
+    TEMPO_ATUALIZACAO_MINICART
+)
 
 class HeaderPage:
 
@@ -12,7 +16,8 @@ class HeaderPage:
     ABOUT_US = (By.XPATH, "/header/div[1]/div[2]/nav/a[2]")
     LOGIN = (By.XPATH, "//div[2]/nav/a[3]")
     SIGN_UP = (By.XPATH, "//div[2]/nav/a[4]")
-    MINI_CART = (By.XPATH, '//*[@id="minicart"]/a[1]')
+    MINI_CART = (By.XPATH, "//div[1]/div[3]/div/a[1]")
+    MINI_CART_QUANTIDADE = (By.XPATH, "//div[3]/div/a[1]/span")
     CHECK_OUT = (By.XPATH, '//*[@id="minicart"]/a[3]')
     LOGOTIPO = (By.XPATH, '//*[@id="logo"]/a/img')
 
@@ -69,6 +74,17 @@ class HeaderPage:
 
         mini_cart.click()
 
+
+    def aguardar_quantidade_minicart(self, quantidade):
+        WebDriverWait(
+        self.driver,
+        TEMPO_ATUALIZACAO_MINICART
+    ).until(
+        lambda driver: driver.find_element(
+            *self.MINI_CART_QUANTIDADE
+        ).text.strip() == str(quantidade)
+    )
+    
     def acessar_checkout(self):
         checkout = self.driver.find_element(
             *self.CHECK_OUT

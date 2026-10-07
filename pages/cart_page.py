@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
+from config.configuracoes import TIMEOUT
 
 class CartPage:
 
@@ -67,7 +70,7 @@ class CartPage:
 
         self.driver.execute_script(
             """
-            arguments[0].style.border = '3px solid green';
+            arguments[0].style.border = '5px solid yellow';
             arguments[0].style.boxSizing = 'border-box';
             """,
             elemento
